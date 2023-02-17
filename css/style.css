@@ -1,0 +1,146 @@
+@charset "UTF-8";
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+header{
+    width: 100%;
+    height: 180px;
+    background-color:transparent;
+    background-image: url(../img/header.png);
+    background-repeat: repeat;
+    background-size: cover;
+}
+.logo{
+    width: 120px;
+    height: auto;
+    margin-left: 150px;
+}
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    min-height: 65vh;
+    margin: 0px 5%; 
+    flex-wrap: wrap; 
+}
+.card{
+    position: relative;
+    width: 300px;
+    height: 350px;
+    margin: 20px;
+}
+.card .face{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .5s;
+}
+.card .front{
+    transform: perspective(600px) rotateY(0deg);
+    box-shadow: 0 5px 10px #000;
+}
+.card .front img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/*FORMATAÇÃO DOS TEXTOS*/
+.card .front h3{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, .4);
+    text-align: center;
+}
+/*CARD TRAZ*/
+.card .back{
+    transform: perspective(600px) rotateY(180deg);
+    background-color:#d63071;
+    padding: 15px;
+    color: #f3f3f3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    box-shadow: 0 5px 10px #000;
+}
+/*ARÉA DO LINK*/
+.card .back h3{
+    font-size: 1.3rem;
+    margin-top: 1rem;
+    letter-spacing: 2px;
+}
+.card .back p{
+    letter-spacing: 1px;
+}
+.card .back .link{
+   border-top: 1px solid #f3f3f3;
+   height: 50px;
+   line-height: 50px;
+}
+.card .back .link a{
+    color: #f3f3f3;
+    text-decoration: none;
+}
+.card .back .link a:hover{
+    font-size: 17px;
+    transition: 0.5s;   
+}
+/*hover-frente*/
+.card:hover .front{
+    transform: perspective(600px) rotateY(180deg);
+}
+/*hover-Traz*/
+.card:hover .back{
+    transform: perspective(600px) rotateY(360deg);
+}
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #d63071;
+    font-size: 1rem;
+    width: 100%;
+    height: 80px;
+    background-image: url(../img/footer.png);
+    background-repeat: repeat;
+    background-size: cover;
+}
+/*MEDIA QUERIES*/
+@media screen and (max-width: 414px){
+    header{
+        background-image: none;
+    }
+    .logo{
+       display: none; 
+    }
+    header{
+        background: url(../img/1.png);
+        background-repeat: repeat;
+        background-size: cover;
+        width: 100%;
+        height: 100px;
+        margin-left: 10%;
+    }  
+    footer p{
+        width: 300px;
+        padding: 20px;
+    }
+}
